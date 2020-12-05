@@ -8,8 +8,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import "tailwindcss/tailwind.css";
-
 const app = new Vue({
     el: '#app',
 });
