@@ -1,4 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <div class="text-danger">This is our home page!</div>
+    @include('layouts.nav')
+
+    <div class="container">
+        <router-view></router-view>
+    </div>
 @endsection
