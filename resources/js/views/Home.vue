@@ -5,7 +5,7 @@
                 <div class="card" v-for="status in statuses">
                     <div class="card-header d-flex">
                         <p>{{ status.user.name }} said...</p>
-                        <p class="ml-auto">{{ postedOn(status) }}</p>
+                        <p class="ml-auto">{{ status.created_at | ago }}</p>
                     </div>
 
                     <div class="card-body">
@@ -32,10 +32,10 @@
                 .then(({data}) => this.statuses = data);
         },
 
-        methods: {
-            postedOn(status){
-                return moment(status.created_at).fromNow();
+        filters: {
+            ago(date) {
+                return moment(date).fromNow();
             }
-        }
+        },
     }
 </script>

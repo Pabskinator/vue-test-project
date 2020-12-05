@@ -2010,9 +2010,9 @@ __webpack_require__.r(__webpack_exports__);
       return _this.statuses = data;
     });
   },
-  methods: {
-    postedOn: function postedOn(status) {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default()(status.created_at).fromNow();
+  filters: {
+    ago: function ago(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).fromNow();
     }
   }
 });
@@ -59281,7 +59281,7 @@ var render = function() {
               _c("p", [_vm._v(_vm._s(status.user.name) + " said...")]),
               _vm._v(" "),
               _c("p", { staticClass: "ml-auto" }, [
-                _vm._v(_vm._s(_vm.postedOn(status)))
+                _vm._v(_vm._s(_vm._f("ago")(status.created_at)))
               ])
             ]),
             _vm._v(" "),
