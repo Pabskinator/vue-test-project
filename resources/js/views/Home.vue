@@ -2,11 +2,14 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Home Page</div>
+                <div class="card" v-for="status in statuses">
+                    <div class="card-header d-flex">
+                        <p>{{ status.user.name }} said...</p>
+                        <p class="ml-auto">{{ postedOn(status) }}</p>
+                    </div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        {{ status.body }}
                     </div>
                 </div>
             </div>
@@ -15,9 +18,24 @@
 </template>
 
 <script>
+    import moment from 'moment';
+
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                statuses: [],
+            }
+        },
+
+        created() {
+            axios.get('/statuses')
+                .then(({data}) => this.statuses = data);
+        },
+
+        methods: {
+            postedOn(status){
+                return moment(status.created_at).fromNow();
+            }
         }
     }
 </script>
