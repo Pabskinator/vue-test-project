@@ -19,9 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/statuses', function (){
-   return App\Models\Status::with('user')->latest()->get();
-});
+Route::get('/statuses', 'StatusesController@index');
+Route::post('/statuses', 'StatusesController@store');
 
 
 

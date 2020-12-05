@@ -1,11 +1,8 @@
 import Vue from 'vue';
-import VueRouter from "vue-router";
 
 window._ = require('lodash');
 
 window.Vue = Vue;
-
-Vue.use(VueRouter);
 
 try {
     window.Popper = require('popper.js').default;
